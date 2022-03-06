@@ -1,0 +1,19 @@
+{% load static %}
+{%block title%}Ankieta{% endblock %}
+
+{% block content %}
+<p>Lista pytań w ankiecie konsumentów:</p>
+
+{% if lista_pytan %}
+<ul>
+    {% for pytanie in lista_pytan %}
+    <li><a href="/ankieta/{{pytanie.id}}/szczegoly">
+            {{pytanie.tekst_pytania}}</a>
+    </li>
+    {% endfor %}
+
+</ul>
+{% else %}
+<p>Nie ma jeszcze pytań!!!</p>
+{% endif %}
+{% endblock %}
