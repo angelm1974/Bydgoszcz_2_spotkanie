@@ -5,6 +5,7 @@ from django.db import models
 class Pytanie(models.Model):
     tekst_pytania=models.CharField(max_length=255)
     data_pub=models.DateTimeField('data publikacji')
+    obraz=models.CharField(max_length=255,default='brak.jpg')
     
     def __str__(self):
         return self.tekst_pytania.upper()
