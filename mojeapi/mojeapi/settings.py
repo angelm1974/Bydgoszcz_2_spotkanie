@@ -35,6 +35,7 @@ REST_FRAMEWORK={
 # Application definition
 
 INSTALLED_APPS = [
+    'szybkistart',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
