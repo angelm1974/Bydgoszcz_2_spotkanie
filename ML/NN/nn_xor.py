@@ -12,5 +12,5 @@ for(x,target) in zip(X,y):
     pred=nn.predict(x)[0][0]
     step =1 if pred > 0.5 else 0
 
-print("[INFO] dane={}, prawda podstawowa={}, pred={}, krok={} ".format(
+    print("[INFO] dane={}, prawda podstawowa={}, pred={}, krok={} ".format(
         x, target[0],pred,step))

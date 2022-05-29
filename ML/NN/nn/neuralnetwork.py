@@ -27,7 +27,7 @@ class NeuralNetwork:
         
         X=np.c_[X,np.ones((X.shape[0]))]
         
-        for epoch in np.arange(0, epoch):
+        for epoch in np.arange(0, epochs):
             for(x,target) in zip(X,y):
                 self.fit_partial(x,target)
                 
