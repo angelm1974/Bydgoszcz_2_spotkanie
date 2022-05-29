@@ -56,6 +56,7 @@ class NeuralNetwork:
 			D.append(delta)
 
 		D = D[::-1]
+		  
 
 
 		for layer in np.arange(0, len(self.W)):
@@ -77,6 +78,7 @@ class NeuralNetwork:
 		targets = np.atleast_2d(targets)
 		predictions = self.predict(X, addBias=False)
 		loss = 0.5 * np.sum((predictions - targets) ** 2)
+		
 
 	
 		return loss
