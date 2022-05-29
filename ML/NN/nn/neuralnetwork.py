@@ -59,20 +59,20 @@ class NeuralNetwork:
     
     
                 
-        def predict(self, X,addBias=True) :
-            p=np.atleast_2d(X)
+    def predict(self, X,addBias=True) :
+        p=np.atleast_2d(X)
             
-            if addBias:
-                p=np.c_[p,np.ones((p.shape[0]))]
+        if addBias:
+            p=np.c_[p,np.ones((p.shape[0]))]
             
             
-            for layer in np.arange(0,len(self.W)):
-                p=self.sigmoid(np.dot(p,self.W[layer]))
-            return p
+        for layer in np.arange(0,len(self.W)):
+            p=self.sigmoid(np.dot(p,self.W[layer]))
+        return p
         
-        def calculate_loss(self,X, targets):
-            targets=np.atleast_2d(targets)
-            predictions = self.predict(X,addBias=False)
-            loss= 0.5 * np.sum((predictions - targets) ** 2)
+    def calculate_loss(self,X, targets):
+        targets=np.atleast_2d(targets)
+        predictions = self.predict(X,addBias=False)
+        loss= 0.5 * np.sum((predictions - targets) ** 2)
             
-            return loss           
+        return loss           
