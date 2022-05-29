@@ -37,5 +37,26 @@ class NeuralNetwork:
                           .format(epoch+1, loss))
                     
     
+    def fit_partial(self,x,y):
+        A = [np.atleast_2d(x)]
         
-        
+        for layer in np.arange(0,len(self.W)):
+            net = A[layer].dot(self.W[layer])
+            out =self.sigmoid(net)
+            A.append(out)
+            
+            error=A[-1] - y
+            D= [error * self.sigmoid_deriv(A[-1])]
+             
+            for layer in np.arange(len(A)-2,0,-1):
+                delta = D[-1].dot(self.W[layer].T)
+                delta = delta * self.sigmoid_deriv(A[layer])
+                D.append(delta)
+            
+            D=D[::-1]
+            for layer in np.arange(0,len(self.W)):
+                self.W[layer] += -self.alpha * A[layer].T.dot(D[layer])
+    
+    
+                
+                
