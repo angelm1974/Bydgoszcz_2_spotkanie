@@ -44,7 +44,7 @@ sgd=sgd_experimental.SGD(0.01)
 model.compile(loss="categorical_crossentropy",optimizer=sgd,
               metrics=['accuracy'])
 H = model.fit(trainX, trainY,validation_data=(testX,testY),
-              epochs=100, batch_size=32)
+              epochs=4, batch_size=32)
 
 print("[INFO] ewaluacja...")
 predictions =model.predict(testX, batch_size=32)
